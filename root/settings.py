@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     'django_ckeditor_5',
-
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -95,8 +95,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
+}
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT',),
 }
 
 JAZZMIN_SETTINGS = {
@@ -303,4 +307,27 @@ CKEDITOR_5_CONFIGS = {
     },
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'shamsiddinpython215@gmail.com'
+EMAIL_HOST_PASSWORD = 'awlxacgediifxhdh'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.core.mail': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}

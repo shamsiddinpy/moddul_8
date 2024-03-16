@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
-from django.db.models import Model, TextField, ForeignKey, CASCADE
-from django.forms import CharField
+from django.db.models import Model, TextField, ForeignKey, CASCADE, CharField
 
 
 class Category(Model):
