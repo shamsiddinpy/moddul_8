@@ -7,9 +7,9 @@ from apps.views import RegisterAPIView, CategoryListCreateAPIView, ProductListCr
 # router = DefaultRouter()
 # router.register(r'register', RegisterAPIView, basename='register')
 urlpatterns = [
-    path('register/', RegisterAPIView.as_view(), name='register'),
-    path('categories/', CategoryListCreateAPIView.as_view(), name='category'),
-    path('products/', ProductListCreateAPIView.as_view(), name='products'),
+    path('register/', RegisterAPIView.as_view()),
+    path('categories/', CategoryListCreateAPIView.as_view()),
+    path('products/', ProductListCreateAPIView.as_view()),
     path('api-auth/', include('rest_framework.urls')),
     path('token/', TokenObtainPairView.as_view())
 ]

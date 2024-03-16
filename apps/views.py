@@ -35,12 +35,6 @@ class ProductListCreateAPIView(ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    def destroy(self, request, *args, **kwargs):
-        product = self.get_object()
-        product.is_deleted = True
-        product.save()
-        return Response(status=status.HTTP_200_OK)
-
 
 class RegisterAPIView(CreateAPIView):
     serializer_class = UserSerializer
